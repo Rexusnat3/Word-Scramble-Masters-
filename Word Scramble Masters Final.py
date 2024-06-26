@@ -1,7 +1,6 @@
 import json
 import random
 
-
 def word_to_scramble(data, max_length=6):
     """pull a word from my dictionary file by filtering
     out all words that are between 3 and the max length of characters
@@ -9,8 +8,8 @@ def word_to_scramble(data, max_length=6):
     :param max_length: maximum length of the word bank """
     filtered_words = []
     for w in data:
-        if 3 <= len(w) <= max_length:  # here is where the filtering is made
-            filtered_words.append(w)  # here I add the filtered words to the list
+        if 3 <= len(w) <= max_length:  # the filtering is done by selecting all the words between 3 and the max length
+            filtered_words.append(w)  # add the filtered words to the list
     if filtered_words:
         return random.choice(filtered_words)  # returns a random word from the list
 
@@ -20,7 +19,7 @@ def dictionary_data(filename):
     :param filename: name of the file to read
     :return: data from dictionary"""
     with open(filename) as file:
-        data = json.load(file)  # here I load the JSON file
+        data = json.load(file)  # load the JSON file
     return data
 
 
@@ -30,7 +29,7 @@ def scramble_word(word_):
     :return: the word scrambled"""
     char_list = list(word_)  # convert the characters into a list
     random.shuffle(char_list)  # shuffle the list
-    scrambled_word = ''.join(char_list)  # then join the characters back
+    scrambled_word = ''.join(char_list)  # join the characters back
     while scrambled_word == word_:  # make sure the word is
         random.shuffle(char_list)   # different from the original
         scrambled_word = ''.join(char_list)  # join the scrambled characters again
@@ -45,19 +44,19 @@ def get_hint(word, word_data):
 
 
 def word_scramble_masters():
-    """ here is the game itself """
+    """ Main function which starts up the game """
     filename = 'webster_dictionary.json'
     word_data = dictionary_data(filename)  # Load the data from the webster_dictionary file
 
-    print("Welcome to the Word Scramble Masters!")
+    print("Welcome to Word Scramble Masters!")
     score = 0  # Starting score of the game
 
     while True:
         word = word_to_scramble(word_data, 6)  # Get a random word from the data then set the max length to 6 characters
 
-        scrambled_word = scramble_word(word)  # scramble the word like eggs
+        scrambled_word = scramble_word(word)  # scramble the word
 
-        print(f"\nScrambled word: {scrambled_word}")  # Serve up breakfast of scrambled word
+        print(f"\nScrambled word: {scrambled_word}")  # prompt to ask the player to unscramble the word
 
         hint = input("Want a hint? (Type 'h' for a hint, press enter to skip): ").strip().lower()  # give hint if wanted
 
