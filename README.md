@@ -1,4 +1,5 @@
 Word Scramble Masters!
+
 Word scramble Masters is a text based word scrambling game made in Python. 
 It loads a dictionary of words from which it selects one at random, scrambles it,
 and asks the player to guess the original word. If a player wants to they can get 
@@ -6,10 +7,12 @@ a hint which is the definition of the word. Scores are based on correct and inco
 guesses and the game will continue until the player decides to stop playing. 
 
 Requirements:
+
 Python 3.x
 The Json file shared in the github link
 
 How to Play:
+
 1. When you run the script, you will be greeted with a welcome message.
 2. A scrambled word will be displayed on the screen.
 3. If you want a hint (the definition of the word), type 'h' and press Enter.
@@ -20,4 +23,5 @@ How to Play:
 8. When you decide to stop, the game will display your final score.
 
 Author
+
 This script was created by Rexusnat3
